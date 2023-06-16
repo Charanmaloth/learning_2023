@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int bit_operations(int num, int oper_type) {
+    int result = num; // Initialize result with the input number
+
+    switch (oper_type) {
+        case 1:
+            result |= (1 << 0); // Set the 1st bit (bit 0)
+            break;
+        case 2:
+            result &= ~(1 << 31); // Clear the 31st bit (bit 31)
+            break;
+        case 3:
+            result ^= (1 << 15); // Toggle the 16th bit (bit 15)
+            break;
+        default:
+            printf("Error: Invalid operation type.\n");
+    }
+
+    return result;
+}
+
+int main() {
+    int number, operationType;
+
+    printf("Enter a 32-bit integer: ");
+    scanf("%d", &number);
+
+    printf("Enter the operation type (1, 2, or 3): ");
+    scanf("%d", &operationType);
+
+    int result = bit_operations(number, operationType);
+
+    printf("Result: %d\n", result);
+
+    return 0;
+}
